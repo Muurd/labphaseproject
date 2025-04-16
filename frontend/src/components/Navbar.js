@@ -169,18 +169,6 @@ function Navbar() {
             <ShoppingCart size={20} />
             Cart({cartsCount})
           </Link>
-          <Link
-              to="/admin"
-              style={{
-                textDecoration: "none",
-                color: "#555",
-                fontWeight: 500,
-                transition: "color 0.3s ease",
-              }}
-              className="category-link"
-            >
-              Admin panel
-            </Link>
           <div className="profile-dropdown">
             <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
@@ -288,7 +276,7 @@ function Navbar() {
             zIndex: 99,
           }}
         >
-          <Link to="/home" style={{ textDecoration: "none", color: "#333", fontWeight: 500 }}>
+          <Link to="/" style={{ textDecoration: "none", color: "#333", fontWeight: 500 }}>
             Home
           </Link>
           <Link to="/allproducts" style={{ textDecoration: "none", color: "#333", fontWeight: 500 }}>

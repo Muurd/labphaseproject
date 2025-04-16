@@ -1,0 +1,18 @@
+const express = require('express')
+const router = express.Router()
+const ProductController = require('../controllers/Product.controller')
+const ProductMiddleware = require('../middlewares/Product.middleware')
+const authMiddleware = require('../middlewares/Auth.middleware');
+router.post("/", ProductMiddleware.LimitImageSize,ProductController.addProduct) 
+router.get('/getProducts',ProductController.getAllProducts)
+router.get('/Getmanproducts',ProductController.getManProducts)
+router.get('/Getwomenproducts',ProductController.getWomenProducts)
+router.get('/getProducts/:id',ProductController.getSpecProduct)
+router.delete('/deleteProduct/:id', ProductController.deleteProduct)
+router.put('/updateProduct/:id', ProductController.updateProduct)
+router.post('/cart/add',ProductController.addToCart)
+router.post('/cart/remove',authMiddleware,ProductController.removeFromCart)
+router.get('/cart/get',authMiddleware,ProductController.getCartItems)
+router.get('/getSearchProduct',authMiddleware,ProductController.getSearchProduct)
+router.get('/getTotalProducts',ProductController.getTotalProducts)
+module.exports = router

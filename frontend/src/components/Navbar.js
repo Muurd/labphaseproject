@@ -334,6 +334,20 @@ function Navbar() {
           >
             My Orders
           </Link>
+          {profile && profile.role === "Admin" && (
+            <Link
+              to="/admin"
+              style={{
+                textDecoration: "none",
+                color: "#555",
+                fontWeight: 500,
+                transition: "color 0.3s ease",
+              }}
+              className="category-link"
+            >
+              Admin panel
+            </Link>
+          )}
         </div>
       )}
 

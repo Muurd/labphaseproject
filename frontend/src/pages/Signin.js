@@ -9,7 +9,7 @@ function Signin() {
     const handleclick = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password })
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, { email, password })
             console.log(response.data)
             localStorage.setItem('token', response.data.token);
             alert('You will be logged in as an Admin user for testing purposes')

@@ -48,7 +48,7 @@ function Profile() {
 
 
             try {
-                const response = await axios.get('http://localhost:5000/api/auth/user', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/user`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -64,7 +64,7 @@ function Profile() {
     useEffect(() => {
         const getOrdersByUserId = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/orders/orderUser', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/orderUser`, {
                     headers: {
                         Authorization: `Bearer ${token}`,  
                     },
@@ -93,7 +93,7 @@ function Profile() {
 
         try {
             const response = await axios.put(
-                'http://localhost:5000/api/auth/profile',
+                `${process.env.REACT_APP_API_URL}/api/auth/profile`,
                 { img: imageUrl },
                 {
                     headers: {

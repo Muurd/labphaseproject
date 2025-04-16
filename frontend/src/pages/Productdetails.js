@@ -13,7 +13,7 @@ function Productdetails() {
     useEffect(() => {
         const getSpecificProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/products/getProducts/${id}`);
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getProducts/${id}`);
                 setSpecProduct(res.data); 
             } catch (error) {
                 console.log(error);
@@ -27,7 +27,7 @@ function Productdetails() {
     }
     const addToCart = async (userId,productId,quantity) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/products/cart/add',{userId,productId,quantity})
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/products/cart/add`,{userId,productId,quantity})
             console.log(response.data)
             alert('Added to cart')
         } catch (error) {

@@ -18,7 +18,7 @@ function Productmanagment() {
   useEffect(() => {
     const showProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products/getProducts")
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getProducts`)
         console.log(res.data)
         setProducts(res.data.AllProducts)
       } catch (error) {
@@ -37,7 +37,7 @@ function Productmanagment() {
     console.log("Image URL: ", selectedImage); 
   
     try {
-      const response = await axios.post('http://localhost:5000/api/products', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/products`, {
         ProductName,
         color,
         price,
@@ -60,7 +60,7 @@ function Productmanagment() {
   };
   const deleteProduct = async (productId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/products/deleteProduct/${productId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/products/deleteProduct/${productId}`);
       console.log(response.data);
 
       if (response.status === 200) {
@@ -77,7 +77,7 @@ function Productmanagment() {
   const updateProduct = async (productId) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/products/updateProduct/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/products/updateProduct/${productId}`,
         { ProductName, color, price, category, gender, size, img, description }
       );
       console.log(response.data);

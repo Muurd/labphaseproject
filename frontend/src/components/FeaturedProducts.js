@@ -8,7 +8,7 @@ function FeaturedProducts() {
     useEffect(() => {
         const showProducts = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/products/getProducts")
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getProducts`)
                 console.log(res.data)
                 setAllTheProducts(res.data.AllProducts)
             } catch (error) {

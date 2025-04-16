@@ -12,7 +12,7 @@ function Cart() {
     useEffect(() => {
         const getCartItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/products/cart/get', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/cart/get`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     }
@@ -50,7 +50,7 @@ function Cart() {
             const newQuantity = item.quantity + 1;
             try {
                 const response = await axios.put(
-                    'http://localhost:5000/api/auth/cart/quantity',
+                    `${process.env.REACT_APP_API_URL}/api/auth/cart/quantity`,
                     { productId, quantity: newQuantity },
                     {
                         headers: {
@@ -75,7 +75,7 @@ function Cart() {
             const newQuantity = item.quantity - 1;
             try {
                 const response = await axios.put(
-                    'http://localhost:5000/api/auth/cart/quantity',
+                    `${process.env.REACT_APP_API_URL}/api/auth/cart/quantity`,
                     { productId, quantity: newQuantity },
                     {
                         headers: {
@@ -99,7 +99,7 @@ function Cart() {
     
     const removeCartItem = async (productId) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/products/cart/remove', { productId }, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/products/cart/remove`, { productId }, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },

@@ -28,14 +28,14 @@ function Womenproducts() {
               let response;
         
               if (searchQuery) {
-                response = await axios.get('http://localhost:5000/api/products/getSearchProduct', {
+                response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getSearchProducts`, {
                   params: { q: searchQuery },
                   headers: { Authorization: `Bearer ${token}` }
                 });
         
                 setWomenproducts(response.data);
               } else {
-                response = await axios.get("http://localhost:5000/api/products/Getwomenproducts", {
+                response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/Getwomenproducts`, {
                   headers: { Authorization: `Bearer ${token}` }
                 });
         

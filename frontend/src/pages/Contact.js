@@ -17,7 +17,7 @@ function Contact() {
     
         try {
           const response = await axios.post(
-            'http://localhost:5000/api/auth/send-email',
+            `${process.env.REACT_APP_API_URL}/api/auth/send-email`,
             {
               name,
               email,

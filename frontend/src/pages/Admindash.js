@@ -15,7 +15,7 @@ function Admindash() {
   useEffect(() => {
     const getAllOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders/getOrders')
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/getOrders`)
         console.log(response.data)
         console.log(response.data.allorders[0].items[0].productId)
         setOrders(response.data.allorders)
@@ -25,7 +25,7 @@ function Admindash() {
     }
     const fetchTotalProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products/getTotalProducts');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getTotalProducts`);
         setTotalProducts(response.data.totalProducts);
       } catch (error) {
         console.error("Error fetching total products:", error);
@@ -35,7 +35,7 @@ function Admindash() {
 
     const fetchTotalOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders/totalOrders');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/totalOrders`);
         setTotalOrders(response.data.totalOrders);
       } catch (error) {
         console.error("Error fetching total orders:", error);
@@ -44,7 +44,7 @@ function Admindash() {
 
     const fetchTotalRevenue = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders/totalRevenue');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/totalRevenue`);
         setTotalRevenue(response.data.totalRevenue);
       } catch (error) {
         console.error("Error fetching total revenue:", error);
@@ -70,7 +70,7 @@ function Admindash() {
       console.log("Token:", token)
 
       try {
-        const response = await axios.get("http://localhost:5000/api/auth/user", {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

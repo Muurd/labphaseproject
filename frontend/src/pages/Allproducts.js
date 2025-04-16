@@ -18,14 +18,14 @@ function Allproducts() {
         let response;
   
         if (searchQuery) {
-          response = await axios.get('http://localhost:5000/api/products/getSearchProduct', {
+          response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getSearchProduct`, {
             params: { q: searchQuery },
             headers: { Authorization: `Bearer ${token}` }
           });
   
           setAllTheProducts(response.data);
         } else {
-          response = await axios.get("http://localhost:5000/api/products/getProducts", {
+          response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/getProducts`, {
             headers: { Authorization: `Bearer ${token}` }
           });
   

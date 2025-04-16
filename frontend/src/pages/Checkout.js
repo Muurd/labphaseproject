@@ -41,7 +41,7 @@ function Checkout() {
 
         try {
             const response = await axios.post(
-                'http://localhost:5000/api/orders/checkout',
+                `${process.env.REACT_APP_API_URL}/api/orders/checkout`,
                 orderData,
                 {
                     headers: {

@@ -6,7 +6,7 @@ function Ordersmanagment() {
     useEffect(() => {
         const getAllOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/orders/getOrders')
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/getOrders`)
                 console.log(response.data)
                 console.log(response.data.allorders[0].items[0].productId)
                 setOrders(response.data.allorders)
@@ -19,7 +19,7 @@ function Ordersmanagment() {
     const handleStatusChange = async (orderId, newStatus) => {
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/orders/${orderId}/update-status`, 
+                `${process.env.REACT_APP_API_URL}/api/orders/${orderId}/update-status`, 
                 { paymentStatus: newStatus }
             );
 

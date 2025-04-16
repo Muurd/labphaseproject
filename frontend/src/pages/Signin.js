@@ -22,7 +22,7 @@ function Signin() {
         <div className={styles['big-container']}>
             <div className={styles['form-container']}>
                 <p className={styles['title']}>Login</p>
-                <form className={styles['form']}>
+                <form className={styles['form']} onSubmit={handleclick}>
                     <div className={styles['input-group']}>
                         <label htmlFor="username">Email</label>
                         <input type="text" name="Email" id="Email" placeholder="Enter Email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
@@ -34,7 +34,7 @@ function Signin() {
                             <p>Forgot password?</p>
                         </div>
                     </div>
-                    <button className={styles['sign']} onClick={handleclick}>Sign in</button>
+                    <button type='submit' className={styles['sign']}>Sign in</button>
                 </form>
                 <div className={styles['social-message']}>
                     <div className={styles['line']}></div>

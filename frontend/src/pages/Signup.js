@@ -26,7 +26,7 @@ function Signup() {
 
             <div style={{ width: '50%', height: '100%', backgroundColor: '#f0f0f0', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                 <div className={styles['form-box']}>
-                    <form className={styles['form']}>
+                    <form className={styles['form']} onSubmit={handleclick}>
                         <span className={styles['title']}>Sign up</span>
                         <span className={styles['subtitle']}>Create a free account with your email.</span>
                         <div className={styles['form-container']}>
@@ -34,7 +34,7 @@ function Signup() {
                             <input type="email" className={styles['input']} placeholder="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                             <input type="password" className={styles['input']} placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}} />
                         </div>
-                        <button onClick={handleclick}>Sign up</button>
+                        <button type='submit'>Sign up</button>
                     </form>
                     <div className={styles['form-section']}>
                         <p>Have an account? <Link to='/login'>Login</Link> </p>
